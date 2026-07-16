@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// 模板占位符：生成仓库时将 {{REPO_NAME}} 替换为实际仓库名（如 hbase-09-memstore）
-// base 必须与仓库名一致，否则 GitHub Pages 子路径资源 404
+// 模板自身仅用于本地预览，base 用根路径。
+// 各演示仓的 vite.config.ts 由 init-repo.sh 用 base: '/<repo>/' 独立生成（同步脚本不覆盖）。
 export default defineConfig({
   plugins: [react()],
-  base: '/{{REPO_NAME}}/',
+  base: '/',
   server: {
     port: 54300,
   },
